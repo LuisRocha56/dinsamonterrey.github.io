@@ -24,6 +24,7 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* --- BARRA DE NAVEGACIÓN ESTÉTICA Y AJUSTADA --- */
@@ -34,6 +35,7 @@ body {
     width: 100%;
     height: 85px;
     background-color: rgba(15, 19, 26, 0.98);
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
     z-index: 1000;
@@ -336,6 +338,12 @@ body {
     gap: 30px;
 }
 
+.grid-4-columnas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
 .card {
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
@@ -462,7 +470,7 @@ footer p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(15, 19, 26, 0.75); /* Capa oscura para legibilidad */
+    background: rgba(15, 19, 26, 0.75);
     z-index: 1;
 }
 
@@ -475,8 +483,75 @@ footer p {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-.grid-4-columnas {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+
+/* ==========================================
+   MEDIA QUERIES (DISEÑO RESPONSIVO)
+   ========================================== */
+
+/* Tablets y pantallas medianas (menos de 1024px) */
+@media (max-width: 1024px) {
+    .nav-menu {
+        display: none; /* Oculta el menú grande en pantallas táctiles intermedias */
+    }
+    
+    .hero-content h1 {
+        font-size: 2.6rem;
+    }
+
+    .split-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* Celulares (menos de 768px) */
+@media (max-width: 768px) {
+    .navbar-fixed {
+        height: 75px;
+    }
+
+    .logo-title {
+        font-size: 1.2rem;
+    }
+
+    .hero-section {
+        padding: 120px 15px 60px;
+        min-height: auto;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+
+    .section {
+        padding: 60px 15px;
+    }
+
+    .section-header h2 {
+        font-size: 1.9rem;
+    }
+
+    /* Las tarjetas se ajustan a una sola columna vertical en celulares */
+    .grid-3, .grid-4-columnas {
+        grid-template-columns: 1fr;
+    }
+
+    .info-box, .info-box-compromiso {
+        padding: 25px;
+    }
 }
