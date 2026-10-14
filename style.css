@@ -474,3 +474,9 @@ footer p {
     font-weight: 800;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
+
+.grid-4-columnas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
