@@ -101,7 +101,7 @@ body {
     margin-top: 2px;
 }
 
-/* Menú de Navegación */
+/* Menú de Navegación Desktop */
 .nav-menu ul {
     list-style: none;
     display: flex;
@@ -182,6 +182,13 @@ body {
     padding-left: 20px;
 }
 
+/* Contenedor Acciones Derecha */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
 /* Botón Cotizar Superior Mejorado */
 .btn-cotizar {
     background: linear-gradient(135deg, #f59e0b, #d97706);
@@ -203,6 +210,125 @@ body {
 .btn-cotizar:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+}
+
+/* Botón Hamburguesa (Oculto en PC por defecto) */
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--accent);
+    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.menu-toggle:hover {
+    background-color: rgba(245, 158, 11, 0.1);
+}
+
+/* --- MENÚ LATERAL MÓVIL (DRAWER) --- */
+.mobile-sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100vh;
+    background-color: var(--dropdown-bg);
+    border-left: 1px solid var(--border-color);
+    z-index: 2000;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.7);
+    transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-sidebar.active {
+    right: 0;
+}
+
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    z-index: 1500;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-sidebar-header {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.close-menu {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.close-menu:hover {
+    color: var(--accent);
+}
+
+.mobile-sidebar-content {
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.mobile-link {
+    display: block;
+    padding: 10px 0;
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(48, 54, 61, 0.4);
+}
+
+.mobile-category {
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.mobile-sublink {
+    display: block;
+    padding: 6px 0 6px 12px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+}
+
+.mobile-sublink:hover {
+    color: var(--accent);
 }
 
 /* --- SECCIÓN HERO --- */
@@ -485,17 +611,21 @@ footer p {
 
 
 /* ==========================================
-   MEDIA QUERIES (DISEÑO RESPONSIVO)
+   MEDIA QUERIES (ADAPTACIÓN MÓVIL Y TABLET)
    ========================================== */
 
-/* Tablets y pantallas medianas (menos de 1024px) */
 @media (max-width: 1024px) {
+    /* Oculta la barra de navegación grande y muestra el botón de menú hamburguesa */
     .nav-menu {
-        display: none; /* Oculta el menú grande en pantallas táctiles intermedias */
+        display: none;
     }
-    
+
+    .menu-toggle {
+        display: flex;
+    }
+
     .hero-content h1 {
-        font-size: 2.6rem;
+        font-size: 2.5rem;
     }
 
     .split-grid {
@@ -504,14 +634,33 @@ footer p {
     }
 }
 
-/* Celulares (menos de 768px) */
 @media (max-width: 768px) {
     .navbar-fixed {
         height: 75px;
     }
 
+    .nav-container {
+        padding: 0 15px;
+    }
+
+    /* Ajustes compactos del logo en móviles para que no choque con el botón */
+    .logo-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 1rem;
+    }
+
     .logo-title {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+    }
+
+    .logo-subtitle {
+        font-size: 7px;
+    }
+
+    .btn-cotizar {
+        padding: 8px 12px;
+        font-size: 0.78rem;
     }
 
     .hero-section {
@@ -520,12 +669,12 @@ footer p {
     }
 
     .hero-content h1 {
-        font-size: 2rem;
+        font-size: 1.9rem;
         line-height: 1.2;
     }
 
     .hero-content p {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .hero-buttons {
@@ -535,7 +684,6 @@ footer p {
 
     .btn-primary, .btn-secondary {
         width: 100%;
-        text-align: center;
     }
 
     .section {
@@ -543,15 +691,10 @@ footer p {
     }
 
     .section-header h2 {
-        font-size: 1.9rem;
+        font-size: 1.8rem;
     }
 
-    /* Las tarjetas se ajustan a una sola columna vertical en celulares */
     .grid-3, .grid-4-columnas {
         grid-template-columns: 1fr;
-    }
-
-    .info-box, .info-box-compromiso {
-        padding: 25px;
     }
 }
