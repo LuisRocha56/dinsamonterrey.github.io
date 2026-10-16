@@ -457,7 +457,7 @@ body {
     font-size: 1.05rem;
 }
 
-/* Grids y Tarjetas */
+/* Grids y Tarjetas Uniformes */
 .grid-3 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -475,6 +475,8 @@ body {
     border: 1px solid var(--border-color);
     border-radius: 10px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
     transition: transform 0.2s, border-color 0.2s;
 }
 
@@ -489,18 +491,66 @@ body {
     object-fit: cover;
 }
 
+/* Cuerpo de la tarjeta con distribución flexible para fijar el botón abajo */
 .card-body {
     padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between; 
 }
 
 .card-body h3 {
     font-size: 1.25rem;
     margin-bottom: 10px;
+    color: #fff;
+    line-height: 1.3;
 }
 
 .card-body p {
     color: var(--text-muted);
     font-size: 0.95rem;
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+/* --- BOTÓN MINIMALISTA PARA TARJETAS --- */
+.btn-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent;
+    color: var(--accent);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+    align-self: flex-start;
+    margin-top: auto; 
+}
+
+.btn-card:hover {
+    background-color: var(--accent);
+    color: #000;
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* Estilo para los botones pendientes / deshabilitados */
+.btn-card.btn-disabled {
+    color: var(--text-muted);
+    border-color: var(--border-color);
+    cursor: default;
+}
+
+.btn-card.btn-disabled:hover {
+    background-color: transparent;
+    color: var(--text-muted);
+    border-color: var(--border-color);
+    transform: none;
 }
 
 /* Nosotros y Contacto Grid */
@@ -587,6 +637,7 @@ footer p {
     text-align: center;
     border-bottom: 1px solid var(--border-color);
     position: relative;
+    overflow: hidden;
 }
 
 .card-header-img::before {
@@ -604,7 +655,7 @@ footer p {
     position: relative;
     z-index: 2;
     color: var(--accent);
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 800;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
@@ -615,7 +666,6 @@ footer p {
    ========================================== */
 
 @media (max-width: 1024px) {
-    /* Oculta la barra de navegación grande y muestra el botón de menú hamburguesa */
     .nav-menu {
         display: none;
     }
@@ -643,7 +693,6 @@ footer p {
         padding: 0 15px;
     }
 
-    /* Ajustes compactos del logo en móviles para que no choque con el botón */
     .logo-icon {
         width: 34px;
         height: 34px;
@@ -697,27 +746,4 @@ footer p {
     .grid-3, .grid-4-columnas {
         grid-template-columns: 1fr;
     }
-
-    /* --- CORRECCIÓN DEFINITIVA PARA TARJETAS CON ENLACE --- */
-.card .card-body a.card-link-wrapper {
-    text-decoration: none;
-    display: block;
-    color: #fff !important; /* Fuerza a que todo el contenedor heredé el blanco */
-}
-
-/* Forzamos explícitamente el color blanco en el título y subtítulo dentro de la tarjeta */
-.card .card-body a.card-link-wrapper h3 {
-    color: #fff !important;
-    margin-bottom: 10px;
-    transition: color 0.2s ease;
-}
-
-.card .card-body a.card-link-wrapper p {
-    color: var(--text-muted) !important;
-}
-
-/* Efecto hover corporativo al pasar el cursor por cualquier parte de la tarjeta */
-.card .card-body a.card-link-wrapper:hover h3 {
-    color: var(--accent) !important;
-}
 }
