@@ -698,17 +698,15 @@ footer p {
         grid-template-columns: 1fr;
     }
 
-    /* Forzar color blanco en los enlaces de las tarjetas y evitar el morado de "visitado" */
-.card .card-body a.card-link-wrapper,
-.card .card-body a.card-link-wrapper:link,
-.card .card-body a.card-link-wrapper:visited {
+    /* --- CORRECCIÓN DEFINITIVA PARA TARJETAS CON ENLACE --- */
+.card .card-body a.card-link-wrapper {
     text-decoration: none;
     display: block;
-    color: #fff !important;
+    color: #fff !important; /* Fuerza a que todo el contenedor heredé el blanco */
 }
 
-.card .card-body a.card-link-wrapper h3,
-.card .card-body a.card-link-wrapper:visited h3 {
+/* Forzamos explícitamente el color blanco en el título y subtítulo dentro de la tarjeta */
+.card .card-body a.card-link-wrapper h3 {
     color: #fff !important;
     margin-bottom: 10px;
     transition: color 0.2s ease;
@@ -718,7 +716,7 @@ footer p {
     color: var(--text-muted) !important;
 }
 
-/* Efecto hover al pasar el mouse */
+/* Efecto hover corporativo al pasar el cursor por cualquier parte de la tarjeta */
 .card .card-body a.card-link-wrapper:hover h3 {
     color: var(--accent) !important;
 }
