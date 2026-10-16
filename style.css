@@ -697,4 +697,29 @@ footer p {
     .grid-3, .grid-4-columnas {
         grid-template-columns: 1fr;
     }
+
+    /* Forzar color blanco en los enlaces de las tarjetas y evitar el morado de "visitado" */
+.card .card-body a.card-link-wrapper,
+.card .card-body a.card-link-wrapper:link,
+.card .card-body a.card-link-wrapper:visited {
+    text-decoration: none;
+    display: block;
+    color: #fff !important;
+}
+
+.card .card-body a.card-link-wrapper h3,
+.card .card-body a.card-link-wrapper:visited h3 {
+    color: #fff !important;
+    margin-bottom: 10px;
+    transition: color 0.2s ease;
+}
+
+.card .card-body a.card-link-wrapper p {
+    color: var(--text-muted) !important;
+}
+
+/* Efecto hover al pasar el mouse */
+.card .card-body a.card-link-wrapper:hover h3 {
+    color: var(--accent) !important;
+}
 }
