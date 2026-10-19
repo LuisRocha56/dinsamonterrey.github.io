@@ -32,55 +32,45 @@
             <nav class="nav-menu">
                 <ul>
                     <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#aditamentos">Servicios</a></li>
-                    
-                    <!-- Menús desplegables -->
-                    <li class="dropdown">
-                        <a href="#aditamentos">Aditamentos de maquinaria pesada <i class="fa-solid fa-chevron-down"></i></a>
-                        <div class="dropdown-content">
-                            <a href="#aditamentos">Articulaciones</a>
-                            <a href="#aditamentos">Brazo</a>
-                            <a href="#aditamentos">Ripper</a>
-                            <a href="#aditamentos">Cucharones</a>
-                            <a href="#aditamentos">Cuchillas</a>
-                            <a href="#aditamentos">Zancos</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <a href="Corte_formado/html/Corte_yFormado.html">Corte y Formado</a>
-                    </li>
-
-                    <li class="dropdown">
-                        <a href="#fixtures">Fixtures para manejo interno <i class="fa-solid fa-chevron-down"></i></a>
-                        <div class="dropdown-content">
-                            <a href="#fixtures">Enganche</a>
-                            <a href="#fixtures">Carros</a>
-                            <a href="#fixtures">Plantillas</a>
-                            <a href="#fixtures">Conveyors</a>
-                            <a href="#fixtures">Ganchos</a>
-                            <a href="#fixtures">Helicoidales</a>
-                        </div>
-                    </li>
-
-                    <li class="dropdown">
-                        <a href="#maquinados">Maquinados <i class="fa-solid fa-chevron-down"></i></a>
-                        <div class="dropdown-content">
-                            <a href="#maquinados">Bujes</a>
-                            <a href="#maquinados">Dados</a>
-                            <a href="#maquinados">Engranes</a>
-                            <a href="#maquinados">Flechas</a>
-                            <a href="#maquinados">Pernos</a>
-                            <a href="#maquinados">Moldes</a>
-                        </div>
-                    </li>
-
-                    <li class="dropdown">
-                        <a href="#racks">Racks y Contenedores <i class="fa-solid fa-chevron-down"></i></a>
-                        <div class="dropdown-content">
-                            <a href="#racks">Canastillas</a>
-                            <a href="#racks">Racks</a>
-                            <a href="#racks">Tolvas</a>
+                    <li class="dropdown menu-servicios">
+                        <a href="#aditamentos" aria-haspopup="true">Servicios <i class="fa-solid fa-chevron-down"></i></a>
+                        <div class="dropdown-content lista-servicios">
+                            <div class="grupo-servicios">
+                                <a class="titulo-servicio" href="#aditamentos">Aditamentos de maquinaria pesada</a>
+                                <a href="#aditamentos">Articulaciones</a>
+                                <a href="#aditamentos">Brazo</a>
+                                <a href="#aditamentos">Ripper</a>
+                                <a href="#aditamentos">Cucharones</a>
+                                <a href="#aditamentos">Cuchillas</a>
+                                <a href="#aditamentos">Zancos</a>
+                            </div>
+                            <div class="grupo-servicios">
+                                <a class="titulo-servicio" href="Corte_formado/html/Corte_yFormado.html">Corte y Formado</a>
+                                <a href="Corte_formado/html/Corte_yFormado.html#doblez">Doblez</a>
+                                <a href="Corte_formado/html/Corte_yFormado.html#oxicorte">Oxicorte y corte con plasma</a>
+                                <a href="Corte_formado/html/Corte_yFormado.html#rolado">Rolado</a>
+                                <a href="Corte_formado/html/Corte_yFormado.html#soldadura">Pailería y soldadura</a>
+                                <a class="titulo-servicio titulo-servicio-separado" href="#fixtures">Fixtures para manejo interno</a>
+                                <a href="#fixtures">Enganche</a>
+                                <a href="#fixtures">Carros</a>
+                                <a href="#fixtures">Plantillas</a>
+                                <a href="#fixtures">Conveyors</a>
+                                <a href="#fixtures">Ganchos</a>
+                                <a href="#fixtures">Helicoidales</a>
+                            </div>
+                            <div class="grupo-servicios">
+                                <a class="titulo-servicio" href="#maquinados">Maquinados</a>
+                                <a href="#maquinados">Bujes</a>
+                                <a href="#maquinados">Dados</a>
+                                <a href="#maquinados">Engranes</a>
+                                <a href="#maquinados">Flechas</a>
+                                <a href="#maquinados">Pernos</a>
+                                <a href="#maquinados">Moldes</a>
+                                <a class="titulo-servicio titulo-servicio-separado" href="#racks">Racks y Contenedores</a>
+                                <a href="#racks">Canastillas</a>
+                                <a href="#racks">Racks</a>
+                                <a href="#racks">Tolvas</a>
+                            </div>
                         </div>
                     </li>
                 </ul>
@@ -88,10 +78,21 @@
 
             <!-- Acciones Derecha (Botón Cotizar + Botón Hamburguesa Móvil) -->
             <div class="nav-actions">
+                <div class="redes-sociales" aria-label="Redes sociales">
+                    <a href="https://www.facebook.com/Dinsamty" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.instagram.com/dinsa.mty/" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@dinsamty?lang=es" aria-label="TikTok">
+                        <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+                    </a>
+                </div>
                 <a href="#contacto" class="btn-cotizar">
                     <i class="fa-solid fa-file-invoice-dollar"></i> <span class="btn-text">Cotizar</span>
                 </a>
-                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <button class="menu-toggle" id="botonMenu" aria-label="Abrir menú">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
@@ -99,49 +100,56 @@
         </div>
     </header>
 
-    <!-- MENÚ LATERAL MÓVIL (DRAWER) -->
-    <div class="mobile-menu-overlay" id="menuOverlay"></div>
-    <aside class="mobile-sidebar" id="mobileSidebar">
+    <!-- MENÚ LATERAL MÓVIL -->
+    <div class="mobile-menu-overlay" id="fondoMenu"></div>
+    <aside class="mobile-sidebar" id="menuLateral">
         <div class="mobile-sidebar-header">
             <span class="logo-title">DIN<span>SA</span></span>
-            <button class="close-menu" id="closeMenu" aria-label="Cerrar menú">
+            <button class="close-menu" id="botonCerrarMenu" aria-label="Cerrar menú">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
         <div class="mobile-sidebar-content">
             <a href="#nosotros" class="mobile-link">Nosotros</a>
-            <a href="#nosotros" class="mobile-link">Servicios</a>
-            
-            <a href="#aditamentos" class="mobile-category">Aditamentos de maquinaria pesada</a>
-            <a href="#aditamentos" class="mobile-sublink">Articulaciones</a>
-            <a href="#aditamentos" class="mobile-sublink">Brazo</a>
-            <a href="#aditamentos" class="mobile-sublink">Ripper</a>
-            <a href="#aditamentos" class="mobile-sublink">Cucharones</a>
-            <a href="#aditamentos" class="mobile-sublink">Cuchillas</a>
-            <a href="#aditamentos" class="mobile-sublink">Zancos</a>
+            <details class="servicios-movil">
+                <summary class="mobile-link">Servicios <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+                <div class="contenido-servicios">
+                    <a href="#aditamentos" class="mobile-category">Aditamentos de maquinaria pesada</a>
+                    <a href="#aditamentos" class="mobile-sublink">Articulaciones</a>
+                    <a href="#aditamentos" class="mobile-sublink">Brazo</a>
+                    <a href="#aditamentos" class="mobile-sublink">Ripper</a>
+                    <a href="#aditamentos" class="mobile-sublink">Cucharones</a>
+                    <a href="#aditamentos" class="mobile-sublink">Cuchillas</a>
+                    <a href="#aditamentos" class="mobile-sublink">Zancos</a>
 
-            <a href="Corte_formado/html/Corte_yFormado.html" class="mobile-category">Corte y Formado</a>
+                    <a href="Corte_formado/html/Corte_yFormado.html" class="mobile-category">Corte y Formado</a>
+                    <a href="Corte_formado/html/Corte_yFormado.html#doblez" class="mobile-sublink">Doblez</a>
+                    <a href="Corte_formado/html/Corte_yFormado.html#oxicorte" class="mobile-sublink">Oxicorte y Plasma</a>
+                    <a href="Corte_formado/html/Corte_yFormado.html#rolado" class="mobile-sublink">Rolado</a>
+                    <a href="Corte_formado/html/Corte_yFormado.html#soldadura" class="mobile-sublink">Pailería y Soldadura</a>
 
-            <a href="#fixtures" class="mobile-category">Fixtures para manejo interno</a>
-            <a href="#fixtures" class="mobile-sublink">Enganche</a>
-            <a href="#fixtures" class="mobile-sublink">Carros</a>
-            <a href="#fixtures" class="mobile-sublink">Plantillas</a>
-            <a href="#fixtures" class="mobile-sublink">Conveyors</a>
-            <a href="#fixtures" class="mobile-sublink">Ganchos</a>
-            <a href="#fixtures" class="mobile-sublink">Helicoidales</a>
+                    <a href="#fixtures" class="mobile-category">Fixtures para manejo interno</a>
+                    <a href="#fixtures" class="mobile-sublink">Enganche</a>
+                    <a href="#fixtures" class="mobile-sublink">Carros</a>
+                    <a href="#fixtures" class="mobile-sublink">Plantillas</a>
+                    <a href="#fixtures" class="mobile-sublink">Conveyors</a>
+                    <a href="#fixtures" class="mobile-sublink">Ganchos</a>
+                    <a href="#fixtures" class="mobile-sublink">Helicoidales</a>
 
-            <a href="#maquinados" class="mobile-category">Maquinados</a>
-            <a href="#maquinados" class="mobile-sublink">Bujes</a>
-            <a href="#maquinados" class="mobile-sublink">Dados</a>
-            <a href="#maquinados" class="mobile-sublink">Engranes</a>
-            <a href="#maquinados" class="mobile-sublink">Flechas</a>
-            <a href="#maquinados" class="mobile-sublink">Pernos</a>
-            <a href="#maquinados" class="mobile-sublink">Moldes</a>
+                    <a href="#maquinados" class="mobile-category">Maquinados</a>
+                    <a href="#maquinados" class="mobile-sublink">Bujes</a>
+                    <a href="#maquinados" class="mobile-sublink">Dados</a>
+                    <a href="#maquinados" class="mobile-sublink">Engranes</a>
+                    <a href="#maquinados" class="mobile-sublink">Flechas</a>
+                    <a href="#maquinados" class="mobile-sublink">Pernos</a>
+                    <a href="#maquinados" class="mobile-sublink">Moldes</a>
 
-            <a href="#racks" class="mobile-category">Racks y Contenedores</a>
-            <a href="#racks" class="mobile-sublink">Canastillas</a>
-            <a href="#racks" class="mobile-sublink">Racks</a>
-            <a href="#racks" class="mobile-sublink">Tolvas</a>
+                    <a href="#racks" class="mobile-category">Racks y Contenedores</a>
+                    <a href="#racks" class="mobile-sublink">Canastillas</a>
+                    <a href="#racks" class="mobile-sublink">Racks</a>
+                    <a href="#racks" class="mobile-sublink">Tolvas</a>
+                </div>
+            </details>
         </div>
     </aside>
 
@@ -269,7 +277,7 @@
         </div>
         <div class="grid-4-columnas">
             
-            <!-- Tarjeta Doblez (Enlace funcional) -->
+            <!-- Tarjeta Doblez -->
             <div class="card">
                 <div class="card-body">
                     <h3>Doblez</h3>
@@ -278,16 +286,16 @@
                 </div>
             </div>
 
-            <!-- Tarjeta Oxicorte y Plasma HD (Pendiente) -->
+            <!-- Tarjeta Oxicorte y Plasma  -->
             <div class="card">
                 <div class="card-body">
-                    <h3>Oxicorte y Plasma HD</h3>
+                    <h3>Oxicorte y Plasma</h3>
                     <p>Soluciones ideales para placas de gran espesor destinadas a estructuras de maquinaria pesada.</p>
                     <a href="Corte_formado/html/Corte_yFormado.html#oxicorte" class="btn-card">Ver detalles</a>
                 </div>
             </div>
 
-            <!-- Tarjeta Rolado (Pendiente) -->
+            <!-- Tarjeta Rolado -->
             <div class="card">
                 <div class="card-body">
                     <h3>Rolado</h3>
@@ -296,7 +304,7 @@
                 </div>
             </div>
 
-            <!-- Tarjeta Soldadura (Pendiente) -->
+            <!-- Tarjeta Soldadura -->
             <div class="card">
                 <div class="card-body">
                     <h3>Soldadura</h3>
@@ -461,24 +469,24 @@
 
     <!-- SCRIPT PARA CONTROLAR EL MENÚ LATERAL MÓVIL -->
     <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const closeMenu = document.getElementById('closeMenu');
-        const mobileSidebar = document.getElementById('mobileSidebar');
-        const menuOverlay = document.getElementById('menuOverlay');
+        const botonMenu = document.getElementById('botonMenu');
+        const botonCerrarMenu = document.getElementById('botonCerrarMenu');
+        const menuLateral = document.getElementById('menuLateral');
+        const fondoMenu = document.getElementById('fondoMenu');
 
-        function toggleMenu() {
-            mobileSidebar.classList.toggle('active');
-            menuOverlay.classList.toggle('active');
+        function alternarMenu() {
+            menuLateral.classList.toggle('active');
+            fondoMenu.classList.toggle('active');
         }
 
-        menuToggle.addEventListener('click', toggleMenu);
-        closeMenu.addEventListener('click', toggleMenu);
-        menuOverlay.addEventListener('click', toggleMenu);
+        botonMenu.addEventListener('click', alternarMenu);
+        botonCerrarMenu.addEventListener('click', alternarMenu);
+        fondoMenu.addEventListener('click', alternarMenu);
 
         document.querySelectorAll('.mobile-sidebar-content a').forEach(link => {
             link.addEventListener('click', () => {
-                mobileSidebar.classList.remove('active');
-                menuOverlay.classList.remove('active');
+                menuLateral.classList.remove('active');
+                fondoMenu.classList.remove('active');
             });
         });
     </script>

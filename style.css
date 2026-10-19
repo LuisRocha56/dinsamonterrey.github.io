@@ -166,6 +166,55 @@ body {
     transform: translateY(0);
 }
 
+.dropdown:focus-within .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.menu-servicios .lista-servicios {
+    display: grid;
+    width: min(760px, calc(100vw - 40px));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    left: auto;
+    right: 0;
+    padding: 14px;
+}
+
+.grupo-servicios {
+    min-width: 0;
+}
+
+.menu-servicios .lista-servicios a {
+    padding: 7px 10px;
+    border-radius: 5px;
+    font-size: 0.76rem;
+    white-space: normal;
+}
+
+.menu-servicios .lista-servicios a:hover {
+    padding-left: 13px;
+}
+
+.menu-servicios .lista-servicios .titulo-servicio {
+    margin-bottom: 4px;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.menu-servicios .lista-servicios .titulo-servicio:hover {
+    color: var(--accent);
+}
+
+.menu-servicios .lista-servicios .titulo-servicio-separado {
+    margin-top: 14px;
+    border-top: 1px solid var(--border-color);
+    border-radius: 0;
+    padding-top: 12px;
+}
+
 .dropdown-content a {
     display: block;
     padding: 9px 16px;
@@ -187,6 +236,31 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
+}
+
+.redes-sociales {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.redes-sociales a {
+    display: grid;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.redes-sociales a:hover {
+    border-color: rgba(245, 158, 11, 0.35);
+    background-color: rgba(245, 158, 11, 0.1);
+    color: var(--accent);
 }
 
 /* Botón Cotizar Superior Mejorado */
@@ -306,6 +380,32 @@ body {
     font-weight: 600;
     font-size: 0.95rem;
     border-bottom: 1px solid rgba(48, 54, 61, 0.4);
+}
+
+.servicios-movil summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    list-style: none;
+}
+
+.servicios-movil summary::-webkit-details-marker {
+    display: none;
+}
+
+.servicios-movil summary i {
+    color: var(--accent);
+    font-size: 0.75rem;
+    transition: transform 0.2s ease;
+}
+
+.servicios-movil[open] summary i {
+    transform: rotate(180deg);
+}
+
+.contenido-servicios {
+    padding-bottom: 12px;
 }
 
 .mobile-category {
@@ -681,6 +781,10 @@ footer p {
         display: flex;
     }
 
+    .menu-servicios .lista-servicios {
+        display: none;
+    }
+
     .hero-content h1 {
         font-size: 2.5rem;
     }
@@ -719,6 +823,26 @@ footer p {
         font-size: 0.78rem;
     }
 
+    .nav-actions {
+        gap: 7px;
+    }
+
+    .redes-sociales {
+        gap: 2px;
+    }
+
+    .redes-sociales a {
+        width: 27px;
+        height: 27px;
+        font-size: 0.82rem;
+    }
+
+    .menu-toggle {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
     .hero-section {
         padding: 120px 15px 60px;
         min-height: auto;
@@ -752,5 +876,36 @@ footer p {
 
     .grid-3, .grid-4-columnas {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 400px) {
+    .logo-subtitle {
+        display: none;
+    }
+
+    .nav-actions {
+        gap: 4px;
+    }
+
+    .redes-sociales {
+        gap: 0;
+    }
+
+    .redes-sociales a {
+        width: 23px;
+        height: 26px;
+        font-size: 0.76rem;
+    }
+
+    .btn-cotizar {
+        gap: 4px;
+        padding: 7px 8px;
+        font-size: 0.7rem;
+    }
+
+    .menu-toggle {
+        width: 32px;
+        height: 34px;
     }
 }
