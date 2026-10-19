@@ -309,6 +309,7 @@ body {
 }
 
 .mobile-category {
+    display: block;
     color: var(--accent);
     font-size: 0.8rem;
     font-weight: 700;
@@ -316,6 +317,11 @@ body {
     letter-spacing: 1px;
     margin-top: 20px;
     margin-bottom: 8px;
+    text-decoration: none;
+}
+
+.mobile-category:hover {
+    color: #fff;
 }
 
 .mobile-sublink {
@@ -422,6 +428,7 @@ body {
     padding: 100px 20px;
     max-width: 1300px;
     margin: 0 auto;
+    scroll-margin-top: 100px;
 }
 
 .section-alt {
