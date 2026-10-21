@@ -3,7 +3,6 @@ import express from "express";
 import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import multer from "multer";
-import nodemailer from "nodemailer";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -93,12 +92,10 @@ app.post("/api/cotizaciones", upload.single("adjunto"), async (request, response
         return;
     }
 
-    const smtpHost = process.env.SMTP_HOST;
-    const smtpPort = Number(process.env.SMTP_PORT);
-    const smtpUser = process.env.SMTP_USER;
-    const smtpPass = process.env.SMTP_PASS;
+    const resendApiKey = process.env.RESEND_API_KEY;
+    const resendFrom = process.env.RESEND_FROM;
 
-    if (!smtpHost || !Number.isInteger(smtpPort) || smtpPort < 1 || !smtpUser || !smtpPass) {
+    if (!resendApiKey || !resendFrom) {
         response.status(503).json({
             error: "El envío de cotizaciones aún no está configurado. Contacta a DINSA directamente."
         });
@@ -108,10 +105,10 @@ app.post("/api/cotizaciones", upload.single("adjunto"), async (request, response
     const safeFilename = request.file?.originalname
         .replace(/[\\/]/g, "_")
         .replace(/[^\w.-]/g, "_");
-    const message = {
-        from: process.env.SMTP_FROM || smtpUser,
-        to: "luisrocha.v.340@gmail.com",
-        replyTo: quote.correo,
+    const email = {
+        from: resendFrom,
+        to: ["luisrocha.v.340@gmail.com"],
+        reply_to: quote.correo,
         subject: "Nueva solicitud de cotización DINSA",
         text: [
             "Nueva solicitud de cotización",
@@ -128,28 +125,41 @@ app.post("/api/cotizaciones", upload.single("adjunto"), async (request, response
         attachments: request.file
             ? [{
                 filename: safeFilename,
-                content: request.file.buffer,
-                contentType: request.file.mimetype
+                content: request.file.buffer.toString("base64")
             }]
             : []
     };
 
     try {
-        const transporter = nodemailer.createTransport({
-            host: smtpHost,
-            port: smtpPort,
-            secure: process.env.SMTP_SECURE === "true",
-            auth: { user: smtpUser, pass: smtpPass },
-            connectionTimeout: 15000,
-            greetingTimeout: 10000,
-            socketTimeout: 30000
+        const resendResponse = await fetch("https://api.resend.com/emails", {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${resendApiKey}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(email),
+            signal: AbortSignal.timeout(20000)
         });
-        await transporter.sendMail(message);
+
+        if (!resendResponse.ok) {
+            const errorBody = await resendResponse.text();
+            console.error(
+                `Resend rechazó el correo (HTTP ${resendResponse.status}):`,
+                errorBody.slice(0, 1000)
+            );
+            response.status(502).json({
+                error: "El proveedor de correo rechazó el envío. Revisa la configuración de Resend."
+            });
+            return;
+        }
+
         response.status(200).json({ message: "Solicitud enviada correctamente." });
     } catch (error) {
-        console.error("Error al enviar una solicitud de cotización:", error);
+        console.error("Error al conectar con la API de correo:", error);
         response.status(502).json({
-            error: "No se pudo enviar la solicitud en este momento. Inténtalo más tarde."
+            error: error instanceof Error && error.name === "TimeoutError"
+                ? "El proveedor de correo tardó demasiado en responder. Inténtalo de nuevo."
+                : "No se pudo conectar con el proveedor de correo. Inténtalo más tarde."
         });
     }
 });
