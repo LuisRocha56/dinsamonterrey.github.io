@@ -1246,8 +1246,20 @@ a {
 
 .service-hero {
     background:
-        linear-gradient(90deg, rgba(32, 36, 44, 0.88) 0%, rgba(32, 36, 44, 0.72) 60%, rgba(32, 36, 44, 0.54) 100%),
+        linear-gradient(90deg, rgba(242, 241, 239, 0.97) 0%, rgba(242, 241, 239, 0.88) 48%, rgba(242, 241, 239, 0.28) 100%),
         url("../../src/images/Corte_Formado/Doblez.jpg") center 48% / cover no-repeat;
+}
+
+.service-hero h1 {
+    color: var(--text-main);
+}
+
+.service-hero p {
+    color: var(--text-muted);
+}
+
+.hero-mark {
+    display: none;
 }
 
 .overview-copy h2,

@@ -3,3 +3,13 @@
 .service-fixtures {
     --service-icon: "\f472";
 }
+
+.service-fixtures .service-hero {
+    background:
+        linear-gradient(90deg, rgba(242, 241, 239, 0.97) 0%, rgba(242, 241, 239, 0.88) 48%, rgba(242, 241, 239, 0.28) 100%),
+        url("../../src/images/Fixtures/fixture_portada.jpg") center 48% / cover no-repeat;
+}
+
+.service-fixtures .service-hero::after {
+    content: none;
+}

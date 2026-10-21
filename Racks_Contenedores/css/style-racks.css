@@ -3,3 +3,13 @@
 .service-racks {
     --service-icon: "\f468";
 }
+
+.service-racks .service-hero {
+    background:
+        linear-gradient(90deg, rgba(242, 241, 239, 0.97) 0%, rgba(242, 241, 239, 0.88) 48%, rgba(242, 241, 239, 0.28) 100%),
+        url("../../src/images/Corte_Formado/Soldadura3.jpg") center 48% / cover no-repeat;
+}
+
+.service-racks .service-hero::after {
+    content: none;
+}
