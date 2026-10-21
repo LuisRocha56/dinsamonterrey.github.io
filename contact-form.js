@@ -16,7 +16,7 @@ if (contactForm) {
         note.dataset.state = "sending";
 
         try {
-            const response = await fetch("/api/cotizaciones", {
+            const response = await fetch("https://dinsamonterrey-github-io.onrender.com/api/cotizaciones", {
                 method: "POST",
                 body: new FormData(contactForm)
             });
@@ -29,7 +29,7 @@ if (contactForm) {
                 } catch {
                     throw new Error(
                         `El servidor respondió con un formato inesperado (HTTP ${response.status}). ` +
-                        "Verifica que el backend de cotizaciones esté ejecutándose en el mismo dominio."
+                        "Verifica la configuración del backend de cotizaciones."
                     );
                 }
             }
@@ -37,7 +37,7 @@ if (contactForm) {
             if (!responseText && !response.ok) {
                 throw new Error(
                     `El servidor no pudo procesar la solicitud (HTTP ${response.status}) y no devolvió detalles. ` +
-                    "Verifica que el backend de cotizaciones esté ejecutándose en el mismo dominio."
+                    "Verifica la configuración del backend de cotizaciones."
                 );
             }
 
@@ -47,7 +47,7 @@ if (contactForm) {
 
             if (!responseText) {
                 throw new Error(
-                    "El servidor devolvió una respuesta vacía. Verifica que el backend de cotizaciones esté ejecutándose."
+                    "El servidor devolvió una respuesta vacía. Verifica la configuración del backend."
                 );
             }
 

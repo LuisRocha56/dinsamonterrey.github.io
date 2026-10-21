@@ -45,6 +45,18 @@ const quoteRateLimit = rateLimit({
 
 app.disable("x-powered-by");
 app.use(helmet({ contentSecurityPolicy: false }));
+app.use("/api", (_request, response, next) => {
+    response.setHeader("Access-Control-Allow-Origin", "*");
+    response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    response.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+    if (_request.method === "OPTIONS") {
+        response.sendStatus(204);
+        return;
+    }
+
+    next();
+});
 app.use("/api/cotizaciones", quoteRateLimit);
 
 app.get("/api/health", (_request, response) => {
