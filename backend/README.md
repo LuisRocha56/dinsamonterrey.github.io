@@ -1,6 +1,6 @@
 # Backend de cotizaciones DINSA
 
-El servidor sirve el sitio estático y recibe el formulario en `POST /api/cotizaciones`. Las solicitudes se envían a `luisrocha.v.340@gmail.com`; el correo del cliente se usa como dirección de respuesta. Se acepta un archivo opcional de hasta 10 MB.
+El servidor redirige la página principal a `frontend/index.html` y recibe el formulario en `POST /api/cotizaciones`. Las solicitudes se envían a `luisrocha.v.340@gmail.com`; el correo del cliente se usa como dirección de respuesta. Se acepta un archivo opcional de hasta 10 MB.
 
 ## Requisitos
 
@@ -21,7 +21,7 @@ Usa el puerto seguro que indique el proveedor SMTP; normalmente 465 con `SMTP_SE
 
 ## Despliegue
 
-Despliega la carpeta `backend` en un servicio que soporte Node.js 20+, configura las mismas variables SMTP como variables privadas del servicio y ejecuta `npm start`. El servicio debe exponer el puerto definido por `PORT`. El backend también sirve los archivos estáticos del sitio desde la carpeta raíz del proyecto, por lo que el dominio puede apuntar directamente a este servicio.
+Despliega el repositorio en un servicio que soporte Node.js 20+, configura las mismas variables SMTP como variables privadas del servicio, establece `backend` como directorio raíz y ejecuta `npm start`. El servicio debe exponer el puerto definido por `PORT`. La página principal del sitio se encuentra en `frontend/index.html`.
 
 Si el sitio se aloja en otro dominio/servicio, habrá que configurar CORS y cambiar el destino de la petición `fetch` en `contact-form.js`.
 

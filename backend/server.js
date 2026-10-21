@@ -63,6 +63,10 @@ app.get("/api/health", (_request, response) => {
     response.json({ status: "ok" });
 });
 
+app.get("/", (_request, response) => {
+    response.redirect(301, "/frontend/index.html");
+});
+
 app.post("/api/cotizaciones", upload.single("adjunto"), async (request, response) => {
     const requiredFields = {
         nombre: 120,
