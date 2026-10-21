@@ -14,11 +14,14 @@ if (contactForm) {
         submitButton.disabled = true;
         note.textContent = "Enviando tu solicitud…";
         note.dataset.state = "sending";
+        const controller = new AbortController();
+        const requestTimeout = setTimeout(() => controller.abort(), 45000);
 
         try {
             const response = await fetch("https://dinsamonterrey-github-io.onrender.com/api/cotizaciones", {
                 method: "POST",
-                body: new FormData(contactForm)
+                body: new FormData(contactForm),
+                signal: controller.signal
             });
             const responseText = await response.text();
             let result = {};
@@ -56,11 +59,14 @@ if (contactForm) {
             note.dataset.state = "success";
         } catch (error) {
             console.error("No se pudo enviar la solicitud de cotización:", error);
-            note.textContent = error instanceof Error
+            note.textContent = error instanceof DOMException && error.name === "AbortError"
+                ? "El servidor tardó demasiado en responder. Espera un momento e inténtalo de nuevo."
+                : error instanceof Error
                 ? error.message
                 : "No se pudo enviar la solicitud. Inténtalo de nuevo más tarde.";
             note.dataset.state = "error";
         } finally {
+            clearTimeout(requestTimeout);
             submitButton.disabled = false;
         }
     });

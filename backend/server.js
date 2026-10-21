@@ -44,6 +44,7 @@ const quoteRateLimit = rateLimit({
 });
 
 app.disable("x-powered-by");
+app.set("trust proxy", 1);
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use("/api", (_request, response, next) => {
     response.setHeader("Access-Control-Allow-Origin", "*");
@@ -138,7 +139,10 @@ app.post("/api/cotizaciones", upload.single("adjunto"), async (request, response
             host: smtpHost,
             port: smtpPort,
             secure: process.env.SMTP_SECURE === "true",
-            auth: { user: smtpUser, pass: smtpPass }
+            auth: { user: smtpUser, pass: smtpPass },
+            connectionTimeout: 15000,
+            greetingTimeout: 10000,
+            socketTimeout: 30000
         });
         await transporter.sendMail(message);
         response.status(200).json({ message: "Solicitud enviada correctamente." });
