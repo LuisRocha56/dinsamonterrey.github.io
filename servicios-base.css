@@ -360,9 +360,7 @@ a {
     overflow: hidden;
     border: 1px solid var(--service-border);
     border-radius: 13px;
-    background:
-        radial-gradient(ellipse at 95% 0%, color-mix(in srgb, var(--service-accent) 9%, transparent), transparent 45%),
-        var(--service-card);
+    background: var(--service-card);
     scroll-margin-top: 110px;
     transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
@@ -381,22 +379,9 @@ a {
     object-fit: cover;
 }
 
-.product-icon {
-    display: grid;
-    width: 54px;
-    height: 54px;
-    margin-bottom: 18px;
-    place-items: center;
-    border: 1px solid color-mix(in srgb, var(--service-accent) 32%, transparent);
-    border-radius: 12px;
-    background: color-mix(in srgb, var(--service-accent) 9%, transparent);
-    color: #8a5a00;
-    font-size: 1.35rem;
-}
-
 .product-card h3 {
     margin: 0 0 9px;
-    color: #fff;
+    color: var(--service-text);
     font-size: 1.18rem;
     font-weight: 800;
     line-height: 1.25;

@@ -3,6 +3,12 @@ const contactForm = document.querySelector("#contact-form");
 if (contactForm) {
     const note = document.querySelector("#form-note");
     const submitButton = contactForm.querySelector('button[type="submit"]');
+    const productField = contactForm.querySelector("#producto");
+    const requestedProduct = new URLSearchParams(window.location.search).get("producto");
+
+    if (productField && requestedProduct) {
+        productField.value = requestedProduct.trim().slice(0, 200);
+    }
 
     contactForm.addEventListener("submit", async (event) => {
         event.preventDefault();

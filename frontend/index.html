@@ -103,7 +103,7 @@
                                 <a href="https://wa.me/528100000000" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-user" aria-hidden="true"></i>Vendedor de ejemplo</a>
                             </div>
                         </details>
-                        <a href="../contacto.html?tipo=cotizacion"><i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i> Cotizar</a>
+                        <a href="../contacto.html?producto=Proyecto%20industrial"><i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i> Cotizar</a>
                     </div>
                 </details>
                 <button class="menu-toggle" id="botonMenu" aria-label="Abrir menú">
@@ -171,14 +171,27 @@
     <!-- SECCIÓN HERO -->
     <section class="hero-section" id="presentacion">
         <div class="hero-content">
-            <div class="hero-badge">
-                <i class="fa-solid fa-shield-halved"></i> Calidad e Ingeniería Industrial
+            <div class="hero-copy">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Ingeniería y fabricación industrial
+                </div>
+                <h1>Fabricamos piezas para el trabajo <span>que no se detiene.</span></h1>
+                <p>Maquinados, aditamentos para maquinaria pesada y soluciones de fabricación desarrolladas alrededor de las necesidades de cada proyecto.</p>
+                <div class="hero-buttons">
+                    <a href="../contacto.html?producto=Proyecto%20industrial" class="btn-primary">Cotizar proyecto <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <a href="#nosotros" class="btn-secondary">Conocer DINSA</a>
+                </div>
+                <div class="hero-proof" aria-label="Experiencia de DINSA">
+                    <span class="hero-proof-mark"><i class="fa-solid fa-industry" aria-hidden="true"></i></span>
+                    <span><strong>Desde 2005</strong><small>Experiencia en fabricación industrial</small></span>
+                </div>
             </div>
-            <h1>Fabricación de <span>Piezas y Maquinaria</span> de Alto Rendimiento</h1>
-            <p>Especialistas en maquinados de precisión, aditamentos para maquinaria pesada, corte y formado, fixtures de sujeción y soluciones en racks metálicos.</p>
-            <div class="hero-buttons">
-                <a href="https://wa.me/528110749037" class="btn-primary" target="_blank" rel="noopener noreferrer">Cotizar Proyecto Ahora</a>
-                <a href="#nosotros" class="btn-secondary">Conocer Empresa</a>
+            <div class="hero-visual">
+                <img src="../src/images/Aditamentos/Art_h.jpg" alt="Componentes industriales fabricados por DINSA en el taller" fetchpriority="high">
+                <div class="hero-image-caption">
+                    <span class="hero-caption-line" aria-hidden="true"></span>
+                    <span>Soluciones hechas para el trabajo real</span>
+                </div>
             </div>
         </div>
     </section>
@@ -460,21 +473,8 @@
             </div>
             <div class="info-box">
                 <h3 style="font-size: 1.5rem; margin-bottom: 20px;">Solicita una Cotización</h3>
-                <form onsubmit="event.preventDefault(); alert('¡Mensaje enviado con éxito!');">
-                    <div class="form-group">
-                        <label for="legacy-nombre">Nombre Completo</label>
-                        <input id="legacy-nombre" type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="legacy-correo">Correo Electrónico</label>
-                        <input id="legacy-correo" type="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="legacy-mensaje">Mensaje / Requerimientos</label>
-                        <textarea id="legacy-mensaje" class="form-control" rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Enviar Solicitud</button>
-                </form>
+                <p>Comparte los datos de tu proyecto y adjunta planos o documentos en el formulario de cotizaciones.</p>
+                <a href="../contacto.html?producto=Proyecto%20industrial" class="btn-primary" style="width: 100%; justify-content: center;">Solicitar cotización</a>
             </div>
         </div>
     </section>

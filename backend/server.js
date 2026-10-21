@@ -12,7 +12,7 @@ const app = express();
 const upload = multer({
     storage: multer.memoryStorage(),
     limits: {
-        fileSize: 10 * 1024 * 1024,
+        fileSize: 20 * 1024 * 1024,
         files: 1,
         fields: 6,
         fieldSize: 10 * 1024
@@ -168,7 +168,7 @@ app.use((error, _request, response, _next) => {
     if (error instanceof multer.MulterError) {
         const status = error.code === "LIMIT_FILE_SIZE" ? 413 : 400;
         const message = error.code === "LIMIT_FILE_SIZE"
-            ? "El archivo supera el límite de 10 MB."
+            ? "El archivo supera el límite de 20 MB."
             : "El formulario o el archivo no cumple los límites permitidos.";
         response.status(status).json({ error: message });
         return;

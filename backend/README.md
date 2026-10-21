@@ -1,6 +1,6 @@
 # Backend de cotizaciones DINSA
 
-El servidor redirige la página principal a `frontend/index.html` y recibe el formulario en `POST /api/cotizaciones`. Envía las solicitudes a `luisrocha.v.340@gmail.com` mediante la API HTTPS de Resend; el correo del cliente se usa como dirección de respuesta. Se acepta un archivo opcional de hasta 10 MB.
+El servidor redirige la página principal a `frontend/index.html` y recibe el formulario en `POST /api/cotizaciones`. Envía las solicitudes a `luisrocha.v.340@gmail.com` mediante la API HTTPS de Resend; el correo del cliente se usa como dirección de respuesta. Se acepta un archivo opcional de hasta 20 MB.
 
 ## Requisitos
 
