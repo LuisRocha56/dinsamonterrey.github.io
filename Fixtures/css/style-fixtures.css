@@ -1,0 +1,5 @@
+@import url("../../servicios-base.css");
+
+.service-fixtures {
+    --service-icon: "\f472";
+}

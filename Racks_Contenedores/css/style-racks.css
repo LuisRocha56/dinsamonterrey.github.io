@@ -1,0 +1,5 @@
+@import url("../../servicios-base.css");
+
+.service-racks {
+    --service-icon: "\f468";
+}

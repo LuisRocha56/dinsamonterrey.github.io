@@ -1,0 +1,15 @@
+@import url("../../servicios-base.css");
+
+.service-aditamentos {
+    --service-icon: "\f0ad";
+}
+
+.service-aditamentos .service-hero {
+    background:
+        linear-gradient(90deg, rgba(242, 241, 239, 0.97) 0%, rgba(242, 241, 239, 0.88) 48%, rgba(242, 241, 239, 0.28) 100%),
+        url("../../src/images/Aditamentos/Art_h.jpg") center 48% / cover no-repeat;
+}
+
+.service-aditamentos .service-hero::after {
+    content: none;
+}

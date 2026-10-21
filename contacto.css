@@ -1,0 +1,234 @@
+:root {
+    color-scheme: light;
+    font-family: "Inter", sans-serif;
+    background: #f2f1ef;
+    color: #011e60;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background:
+        radial-gradient(ellipse at 85% 8%, rgba(139, 178, 253, 0.2), transparent 32%),
+        #f2f1ef;
+}
+
+.contact-header {
+    display: flex;
+    min-height: 78px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 12px max(22px, calc((100% - 1120px) / 2));
+    background: #011e60;
+}
+
+.contact-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #f2f1ef;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+}
+
+.contact-logo > span:last-child > span {
+    color: #fab52a;
+}
+
+.contact-logo small {
+    display: block;
+    margin-top: 2px;
+    color: #c4cbe0;
+    font-size: 0.52rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.contact-logo-icon {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border-radius: 8px;
+    background: #fab52a;
+    color: #011e60;
+}
+
+.back-link {
+    color: #f2f1ef;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: #fab52a;
+}
+
+.contact-main {
+    width: min(100% - 36px, 850px);
+    margin: 0 auto;
+    padding: 70px 0 90px;
+}
+
+.contact-intro {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.contact-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #8a5a00;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+}
+
+.contact-intro h1 {
+    margin: 12px 0;
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: -0.045em;
+    line-height: 1.1;
+}
+
+.contact-intro p {
+    margin: 0;
+    color: #53617a;
+    line-height: 1.7;
+}
+
+.contact-form {
+    padding: clamp(22px, 5vw, 42px);
+    border: 1px solid #d8deea;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 20px 55px rgba(1, 30, 96, 0.08);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.form-field {
+    display: grid;
+    gap: 8px;
+}
+
+.form-field-full {
+    grid-column: 1 / -1;
+}
+
+.form-field label {
+    color: #011e60;
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    border: 1px solid #d8deea;
+    border-radius: 8px;
+    background: #fbfcff;
+    color: #011e60;
+    font: inherit;
+    font-size: 0.94rem;
+    padding: 12px 14px;
+}
+
+.form-field textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    border-color: #8bb2fd;
+    outline: 3px solid rgba(139, 178, 253, 0.25);
+}
+
+.file-help {
+    color: #53617a;
+    font-size: 0.78rem;
+    line-height: 1.45;
+}
+
+.send-button {
+    display: inline-flex;
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 24px;
+    padding: 11px 20px;
+    border: 0;
+    border-radius: 8px;
+    background: #fab52a;
+    color: #011e60;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 800;
+}
+
+.send-button:hover {
+    background: #e6a31c;
+}
+
+.send-button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}
+
+.form-note {
+    margin: 13px 0 0;
+    color: #53617a;
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+
+.form-note[data-state="success"] {
+    color: #176b39;
+}
+
+.form-note[data-state="error"] {
+    color: #a32626;
+}
+
+.form-note[data-state="sending"] {
+    color: #53617a;
+}
+
+@media (max-width: 600px) {
+    .contact-header {
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-field-full {
+        grid-column: auto;
+    }
+
+    .send-button {
+        width: 100%;
+    }
+}

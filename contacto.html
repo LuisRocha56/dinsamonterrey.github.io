@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Solicita una cotización a DINSA y adjunta la información de tu proyecto.">
+    <title>Solicitar cotización | DINSA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="contacto.css">
+</head>
+<body>
+    <header class="contact-header">
+        <a class="contact-logo" href="index.html" aria-label="DINSA, volver al inicio">
+            <span class="contact-logo-icon"><i class="fa-solid fa-gears" aria-hidden="true"></i></span>
+            <span>DIN<span>SA</span><small>Maquinados Industriales</small></span>
+        </a>
+        <a class="back-link" href="index.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver al sitio</a>
+    </header>
+
+    <main class="contact-main">
+        <section class="contact-intro">
+            <span class="contact-eyebrow"><i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i> COTIZACIONES</span>
+            <h1 id="form-title">Solicita una cotización</h1>
+            <p>Comparte los datos de tu proyecto. Si tienes planos u otros documentos, puedes adjuntar un archivo.</p>
+        </section>
+
+        <form class="contact-form" id="contact-form" enctype="multipart/form-data">
+            <div class="form-grid">
+                <div class="form-field">
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" name="nombre" autocomplete="name" maxlength="120" required>
+                </div>
+                <div class="form-field">
+                    <label for="empresa">Empresa</label>
+                    <input id="empresa" name="empresa" autocomplete="organization" maxlength="160" required>
+                </div>
+                <div class="form-field">
+                    <label for="celular">Celular</label>
+                    <input id="celular" name="celular" type="tel" autocomplete="tel" maxlength="40" required>
+                </div>
+                <div class="form-field">
+                    <label for="correo">Correo</label>
+                    <input id="correo" name="correo" type="email" autocomplete="email" maxlength="254" required>
+                </div>
+                <div class="form-field form-field-full">
+                    <label for="producto">Producto que requiere</label>
+                    <input id="producto" name="producto" maxlength="200" required>
+                </div>
+                <div class="form-field form-field-full">
+                    <label for="especificaciones">Especificaciones</label>
+                    <textarea id="especificaciones" name="especificaciones" rows="5" maxlength="5000" required></textarea>
+                </div>
+                <div class="form-field form-field-full">
+                    <label for="adjunto">Archivo (opcional)</label>
+                    <input id="adjunto" name="adjunto" type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.zip,.dwg,.dxf,.step,.stp">
+                    <small class="file-help">Un archivo de hasta 10 MB: PDF, Office, imagen, ZIP o dibujo CAD.</small>
+                </div>
+            </div>
+            <button class="send-button" type="submit"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Enviar solicitud</button>
+            <p class="form-note" id="form-note" role="status" aria-live="polite">La solicitud se enviará directamente al equipo de DINSA.</p>
+        </form>
+    </main>
+
+    <script src="contact-form.js" defer></script>
+</body>
+</html>
